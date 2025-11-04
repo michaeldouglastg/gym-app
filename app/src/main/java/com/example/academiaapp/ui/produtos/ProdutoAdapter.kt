@@ -42,7 +42,6 @@ class ProdutoAdapter(
         holder.tvDescricao.text = produto.descricao
         holder.tvEstoque.text = "Estoque: ${produto.estoque}"
 
-        // Configurar botões
         holder.btnEditar.setOnClickListener {
             onEditClick(produto)
         }

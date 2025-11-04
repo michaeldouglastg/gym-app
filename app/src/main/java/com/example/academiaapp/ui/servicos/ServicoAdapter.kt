@@ -42,7 +42,6 @@ class ServicoAdapter(
         holder.tvDescricao.text = servico.descricao
         holder.tvDuracao.text = "Duração: ${servico.duracao} min"
 
-        // Configurar botões
         holder.btnEditar.setOnClickListener {
             onEditClick(servico)
         }
