@@ -1,31 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Cores Primárias - Azul Academia -->
-    <color name="primary">#1E88E5</color>
-    <color name="primary_dark">#1565C0</color>
-    <color name="primary_light">#42A5F5</color>
+    <!-- Cores Dark Theme - Moderno e Atraente -->
 
-    <!-- Cores Secundárias - Laranja Energia -->
-    <color name="secondary">#FF6F00</color>
-    <color name="secondary_dark">#E65100</color>
-    <color name="secondary_light">#FF9800</color>
+    <!-- Background Gradiente Escuro -->
+    <color name="background_dark">#0A0E27</color>
+    <color name="background_card">#1A1F3A</color>
+    <color name="background_card_elevated">#252B47</color>
 
-    <!-- Cores de Fundo -->
-    <color name="background">#F5F5F5</color>
-    <color name="surface">#FFFFFF</color>
-    <color name="surface_variant">#ECEFF1</color>
+    <!-- Cores Primárias - Azul Neon -->
+    <color name="primary">#00D9FF</color>
+    <color name="primary_dark">#00B8D4</color>
+    <color name="primary_light">#4DFFFF</color>
+    <color name="primary_variant">#0088A3</color>
+
+    <!-- Cores Secundárias - Rosa/Roxo Neon -->
+    <color name="secondary">#FF2E63</color>
+    <color name="secondary_dark">#E01E5A</color>
+    <color name="secondary_light">#FF5C8D</color>
+    <color name="accent">#B721FF</color>
+
+    <!-- Cores de Destaque -->
+    <color name="neon_purple">#B721FF</color>
+    <color name="neon_blue">#00D9FF</color>
+    <color name="neon_pink">#FF2E63</color>
+    <color name="neon_green">#39FF14</color>
+    <color name="neon_orange">#FF6600</color>
 
     <!-- Cores de Texto -->
-    <color name="text_primary">#212121</color>
-    <color name="text_secondary">#757575</color>
-    <color name="text_hint">#BDBDBD</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B8C5D6</color>
+    <color name="text_hint">#6B7A99</color>
+    <color name="text_disabled">#4A5568</color>
 
     <!-- Cores de Status -->
-    <color name="success">#4CAF50</color>
-    <color name="error">#F44336</color>
-    <color name="warning">#FFC107</color>
+    <color name="success">#39FF14</color>
+    <color name="error">#FF2E63</color>
+    <color name="warning">#FFB800</color>
+    <color name="info">#00D9FF</color>
+
+    <!-- Superfícies -->
+    <color name="surface">#1A1F3A</color>
+    <color name="surface_elevated">#252B47</color>
+    <color name="surface_overlay">#2D3452</color>
 
     <!-- Outras -->
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Overlay/Sombras -->
+    <color name="overlay_dark">#80000000</color>
+    <color name="shadow">#40000000</color>
+
+    <!-- Divisores -->
+    <color name="divider">#2D3452</color>
 </resources>
