@@ -4,47 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/gradient_background"
     tools:context=".ui.home.HomeActivity">
 
-    <!-- Toolbar/Header -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardHeader"
+    <!-- Header com gradiente -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/primary"
-        app:cardCornerRadius="0dp"
-        app:cardElevation="4dp"
+        android:background="@drawable/gradient_card"
+        android:elevation="8dp"
+        android:padding="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <!-- Efeito brilho no header -->
+        <View
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="-50dp"
+            android:layout_marginTop="-50dp"
+            android:background="@drawable/gradient_neon_blue"
+            android:alpha="0.3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvBemVindo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:text="Bem-vindo(a)"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:letterSpacing="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tvBemVindo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bem-vindo(a)"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
+        <TextView
+            android:id="@+id/tvNomeUsuario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:text="Usuário"
+            android:textColor="@color/text_primary"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBemVindo" />
 
-            <TextView
-                android:id="@+id/tvNomeUsuario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Usuário"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+        <!-- Linha decorativa neon -->
+        <View
+            android:layout_width="60dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/gradient_neon_blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNomeUsuario" />
 
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- ScrollView para conteúdo -->
     <ScrollView
@@ -54,88 +76,177 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardHeader">
+        app:layout_constraintTop_toBottomOf="@id/headerContainer">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="20dp">
 
-            <!-- Card Produtos -->
+            <!-- Título seção -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MENU PRINCIPAL"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.15"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Card Produtos com gradiente neon -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardProdutos"
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:layout_marginBottom="16dp"
+                android:layout_height="160dp"
+                android:layout_marginBottom="20dp"
                 android:clickable="true"
                 android:focusable="true"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                app:cardBackgroundColor="@color/transparent"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="12dp"
+                app:strokeColor="@color/primary"
+                app:strokeWidth="2dp">
 
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/primary_light"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="24dp">
+                    android:background="@drawable/gradient_neon_blue">
 
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:contentDescription="Ícone Produtos"
-                        android:src="@android:drawable/ic_menu_view"
-                        app:tint="@color/white" />
+                    <!-- Overlay escuro para legibilidade -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/overlay_dark" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="Produtos"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="24dp">
 
-                </LinearLayout>
+                        <!-- Ícone com fundo -->
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            app:cardCornerRadius="16dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardElevation="4dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="Ícone Produtos"
+                                android:src="@android:drawable/ic_menu_view"
+                                app:tint="@color/primary" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="PRODUTOS"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.1"
+                            android:shadowColor="@color/black"
+                            android:shadowDx="2"
+                            android:shadowDy="2"
+                            android:shadowRadius="4" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Gerencie seus produtos"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:alpha="0.9" />
+
+                    </LinearLayout>
+                </FrameLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Card Serviços -->
+            <!-- Card Serviços com gradiente neon rosa -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardServicos"
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:layout_marginBottom="16dp"
+                android:layout_height="160dp"
+                android:layout_marginBottom="20dp"
                 android:clickable="true"
                 android:focusable="true"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                app:cardBackgroundColor="@color/transparent"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="12dp"
+                app:strokeColor="@color/secondary"
+                app:strokeWidth="2dp">
 
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/secondary"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="24dp">
+                    android:background="@drawable/gradient_neon_pink">
 
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:contentDescription="Ícone Serviços"
-                        android:src="@android:drawable/ic_menu_preferences"
-                        app:tint="@color/white" />
+                    <!-- Overlay escuro para legibilidade -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/overlay_dark" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="Serviços"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="24dp">
 
-                </LinearLayout>
+                        <!-- Ícone com fundo -->
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            app:cardCornerRadius="16dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardElevation="4dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="Ícone Serviços"
+                                android:src="@android:drawable/ic_menu_preferences"
+                                app:tint="@color/secondary" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="SERVIÇOS"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.1"
+                            android:shadowColor="@color/black"
+                            android:shadowDx="2"
+                            android:shadowDy="2"
+                            android:shadowRadius="4" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Gerencie seus serviços"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:alpha="0.9" />
+
+                    </LinearLayout>
+                </FrameLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Botão Sair -->
@@ -144,11 +255,16 @@
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:layout_marginTop="24dp"
-                android:text="Sair"
+                android:layout_marginTop="8dp"
+                android:text="SAIR"
                 android:textColor="@color/error"
-                app:cornerRadius="12dp"
-                app:strokeColor="@color/error" />
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                app:cornerRadius="16dp"
+                app:strokeColor="@color/error"
+                app:strokeWidth="2dp"
+                app:icon="@android:drawable/ic_menu_revert"
+                app:iconTint="@color/error" />
 
         </LinearLayout>
     </ScrollView>
