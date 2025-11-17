@@ -4,43 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/gradient_background"
     tools:context=".ui.login.LoginActivity">
 
-    <!-- Logo/Título -->
-    <ImageView
-        android:id="@+id/ivLogo"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="80dp"
-        android:contentDescription="Logo Academia"
-        android:src="@android:drawable/ic_menu_gallery"
-        app:tint="@color/primary"
+    <!-- Efeito de brilho no topo -->
+    <View
+        android:id="@+id/topGlow"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="-100dp"
+        android:background="@drawable/gradient_neon_blue"
+        android:alpha="0.3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Logo/Ícone -->
+    <View
+        android:id="@+id/logoContainer"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/gradient_neon_blue"
+        android:elevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:contentDescription="Logo Academia"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/logoContainer"
+        app:layout_constraintEnd_toEndOf="@id/logoContainer"
+        app:layout_constraintStart_toStartOf="@id/logoContainer"
+        app:layout_constraintTop_toTopOf="@id/logoContainer" />
+
+    <!-- Título -->
     <TextView
         android:id="@+id/tvTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Academia App"
-        android:textColor="@color/text_primary"
-        android:textSize="28sp"
+        android:layout_marginTop="24dp"
+        android:text="ACADEMIA"
+        android:textColor="@color/primary"
+        android:textSize="36sp"
         android:textStyle="bold"
+        android:letterSpacing="0.1"
+        android:fontFamily="sans-serif-medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+        app:layout_constraintTop_toBottomOf="@id/logoContainer" />
 
     <TextView
         android:id="@+id/tvSubtitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="Seu treino, sua evolução"
         android:textColor="@color/text_secondary"
-        android:textSize="16sp"
+        android:textSize="14sp"
+        android:letterSpacing="0.05"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitulo" />
@@ -53,8 +80,11 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="24dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/background_card"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="12dp"
+        app:strokeColor="@color/primary"
+        app:strokeWidth="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSubtitulo">
@@ -63,7 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="28dp">
 
             <!-- Campo Email -->
             <com.google.android.material.textfield.TextInputLayout
@@ -72,13 +102,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
-                app:startIconDrawable="@android:drawable/ic_dialog_email">
+                app:boxStrokeColor="@color/primary"
+                app:hintTextColor="@color/primary"
+                app:startIconDrawable="@android:drawable/ic_dialog_email"
+                app:startIconTint="@color/primary">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_hint" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Campo Senha -->
@@ -89,37 +124,70 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="Senha"
+                app:boxStrokeColor="@color/primary"
+                app:hintTextColor="@color/primary"
                 app:endIconMode="password_toggle"
-                app:startIconDrawable="@android:drawable/ic_lock_lock">
+                app:endIconTint="@color/primary"
+                app:startIconDrawable="@android:drawable/ic_lock_lock"
+                app:startIconTint="@color/primary">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etSenha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_hint" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Botão Entrar -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEntrar"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="24dp"
-                android:text="Entrar"
+                android:layout_height="60dp"
+                android:layout_marginTop="28dp"
+                android:text="ENTRAR"
                 android:textSize="16sp"
-                app:cornerRadius="12dp" />
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                android:backgroundTint="@color/primary"
+                android:textColor="@color/background_dark"
+                app:cornerRadius="16dp"
+                app:elevation="8dp" />
+
+            <!-- Divisor -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/divider" />
 
             <!-- Botão Cadastrar -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCadastrar"
-                style="@style/Widget.Material3.Button.TextButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Criar uma conta"
-                android:textColor="@color/primary" />
+                android:layout_height="56dp"
+                android:text="CRIAR CONTA"
+                android:textColor="@color/secondary"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                app:strokeColor="@color/secondary"
+                app:strokeWidth="2dp"
+                app:cornerRadius="16dp" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
+
+    <!-- Decoração inferior -->
+    <View
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="-75dp"
+        android:background="@drawable/gradient_neon_pink"
+        android:alpha="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
