@@ -3,31 +3,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/gradient_card"
     android:orientation="vertical"
     android:padding="24dp">
 
-    <TextView
-        android:id="@+id/tvTituloDialog"
-        android:layout_width="wrap_content"
+    <!-- Header com linha neon -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Adicionar Serviço"
-        android:textColor="@color/text_primary"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTituloDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adicionar Serviço"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="60dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/gradient_neon_pink" />
+
+    </LinearLayout>
 
     <!-- Campo Nome -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:hint="Nome do Serviço"
+        app:boxStrokeColor="@color/secondary"
+        app:hintTextColor="@color/secondary"
+        app:startIconDrawable="@android:drawable/ic_menu_preferences"
+        app:startIconTint="@color/secondary"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etNomeServico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textCapWords" />
+            android:inputType="textCapWords"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Campo Descrição -->
@@ -36,6 +58,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:hint="Descrição"
+        app:boxStrokeColor="@color/secondary"
+        app:hintTextColor="@color/secondary"
+        app:startIconDrawable="@android:drawable/ic_menu_info_details"
+        app:startIconTint="@color/secondary"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -43,7 +69,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapSentences"
-            android:maxLines="3" />
+            android:maxLines="3"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Campo Instrutor -->
@@ -52,13 +80,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:hint="Instrutor"
+        app:boxStrokeColor="@color/secondary"
+        app:hintTextColor="@color/secondary"
+        app:startIconDrawable="@android:drawable/ic_menu_myplaces"
+        app:startIconTint="@color/secondary"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etInstrutorServico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textCapWords" />
+            android:inputType="textCapWords"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Linha com Valor e Duração -->
@@ -75,13 +109,19 @@
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:hint="Valor (R$)"
+            app:boxStrokeColor="@color/secondary_light"
+            app:hintTextColor="@color/secondary_light"
+            app:prefixText="R$ "
+            app:prefixTextColor="@color/secondary_light"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etValorServico"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_hint" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Campo Duração -->
@@ -91,13 +131,19 @@
             android:layout_marginStart="8dp"
             android:layout_weight="1"
             android:hint="Duração (min)"
+            app:boxStrokeColor="@color/info"
+            app:hintTextColor="@color/info"
+            app:suffixText=" min"
+            app:suffixTextColor="@color/info"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etDuracaoServico"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number" />
+                android:inputType="number"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_hint" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
@@ -106,7 +152,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="28dp"
         android:gravity="end"
         android:orientation="horizontal">
 
@@ -115,16 +161,23 @@
             style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancelar"
-            android:textColor="@color/text_secondary" />
+            android:text="CANCELAR"
+            android:textColor="@color/text_secondary"
+            android:textStyle="bold"
+            android:letterSpacing="0.05" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSalvar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="12dp"
+            android:text="SALVAR"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"
             android:backgroundTint="@color/secondary"
-            android:text="Salvar" />
+            android:textColor="@color/white"
+            app:cornerRadius="12dp"
+            app:elevation="8dp" />
 
     </LinearLayout>
 
